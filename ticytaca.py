@@ -48,7 +48,7 @@ grid_symbols = {
     2: 'O'
 }
 
-def start_game():
+def develop_game():
     player_one_turn = True
     while True:
         print_grid()
@@ -66,25 +66,32 @@ def start_game():
                 print("It's a draw!")
                 print_grid()
                 break
-            player_one_turn = not player_one_turn # player switch
+            player_one_turn = switch_player(player_one_turn) # player_one_turn = not player_one_turn # player switch
         else:
-            print("The position is already taken, try again.")
+            print("Try again with other position.")
+
+
+  
+
+def switch_player(flag):
+    turn_flag = not flag
+    return turn_flag
 
 def get_valid_input(player):
     while True:
-        row = input(f"{player}, please choose a row (1-3): ")
-        column = input(f"{player}, please choose a column (1-3): ")
+        row = input(f"{player}, pick a row (1-3): ")
+        column = input(f"{player}, pick a column (1-3): ")
         if row.isdigit() and column.isdigit():
             row, column = int(row) - 1, int(column) - 1
             if 0 <= row < 3 and 0 <= column < 3:
                 return row, column
-        print("Invalid input, please enter numbers between 1 and 3.")
+        print("Please try a number between 1 and 3.")
 
 
 def print_grid():
-    for idx, row in enumerate(grid):
+    for index, row in enumerate(grid):
         row_display = " | ".join(grid_symbols[cell] for cell in row)
-        print(f"(row) {idx + 1} | {row_display}")
+        print(f"(row) {index + 1} | {row_display}")
     print("    1   2   3  (column)")
 
 def check_winner():
@@ -99,7 +106,7 @@ def check_winner():
         return True
     return False
 
-start_game()
+develop_game()
 
 
 
