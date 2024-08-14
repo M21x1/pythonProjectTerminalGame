@@ -18,6 +18,8 @@
   <li>The game developer</li>
 </ul>
 
+<h2>How things work</h2>
+
 <p>The above list can be daunting but no worries..I was too, hehe.</p> 
 <br>
 <p>First, the grid printer is a function that uses a dictionary to print out an initial frame where the players will be placing their signs.</p>
@@ -31,3 +33,5 @@
 <p>Finally, the game developer relates the four functions described and initializes the game.</p>
 <br>
 <img width="700" height="400" src="assets/screen_terminal_game.jpg">
+<br>
+
